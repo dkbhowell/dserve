@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Fibonacci",
+    "description": "Computes the nth number in the fibonacci sequence",
+    "implementations": [
+      {
+        "description": "Iterative Implementation",
+        "language": "Javascript",
+        "runtime": null,
+        "implText": ""
+      },
+      {
+        "description": "Recursive Implementation",
+        "language": "Javascript",
+        "runtime": null,
+        "implText": ""
+      }
+    ]
+  },
+  {
+    "name": "Binary Search Tree In Order Traversal",
+    "description": "Walks a Binary Tree in order",
+    "implementations": [
+      {
+        "description": "Iterative Implementation",
+        "language": "Javascript",
+        "runtime": null,
+        "implText": ""
+      },
+      {
+        "description": "Recursive Implementation",
+        "language": "Javascript",
+        "runtime": null,
+        "implText": ""
+      }
+    ]
+  }
+]
