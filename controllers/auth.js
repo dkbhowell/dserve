@@ -33,7 +33,7 @@ module.exports = function(passport){
       res.render('auth/login');
     }else{
       console.log ('About to try auth - email: ' + email + ', pwd: ' + pwd);
-      passport.authenticate('local', { successRedirect: '/', failureRedirect: '/' })(req, res);
+      passport.authenticate('local', { successRedirect: '/', failureRedirect: '/auth/login' })(req, res);
     }
   });
 
