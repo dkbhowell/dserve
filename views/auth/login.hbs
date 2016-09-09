@@ -1,21 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <style>
+    #btn_create_acct {
+    background:none!important;
+     border:none;
+     padding:0!important;
+     font: inherit;
+     /*border is optional*/
+     border-bottom:1px solid #444;
+     cursor: pointer;
+    }
+
+    #form_create_account{
+      display: none;
+    }
+  </style>
 <title>Login</title>
 </head>
 <body>
 
-<div>
-  <h1>Login to DServe</h1>
-  <form action="">
+<h1>Welcome to DServe</h1>
+<div id="form_login">
+  <h4>Login</h4>
+  <form action="login" method="post">
     Email Address: <br />
-    <input type="email" name="email" value="" />
+    <input type="text" name="username" />
     <br />
-    Email Address: <br />
-    <input type="password" name="pwd" value="" />
+    Password: <br />
+    <input type="password" name="password" />
+    <br />
+    <input type="submit" value="Submit" />
   </form>
 </div>
 
+<div id="form_create_account">
+  <h4>Create Account</h4>
+  <form action="login" method="post">
+    Email Address: <br />
+    <input type="text" name="username" />
+    <br />
+    Password: <br />
+    <input type="password" name="password" />
+    <br />
+    <input type="password" name="password2" />
+    <br />
+    <input type="submit" value="Submit" />
+  </form>
+</div>
+
+<div>
+  <button id="btn_create_acct" onclick="toggleForm()">or, create an account!</button>
+</div>
+
+<script>
+var loginForm = document.getElementById("form_login");
+var createForm = document.getElementById("form_create_account");
+loginForm.style.display = "block";
+createForm.style.display = "none";
+  function toggleForm(){
+    if(loginForm.style.display == "none"){
+      loginForm.style.display = "block";
+    }else{
+      loginForm.style.display = "none";
+    }
+    if(createForm.style.display == "none"){
+      createForm.style.display = "block";
+    }else{
+      createForm.style.display = "none";
+    }
+  }
+</script>
 
 </body>
 </html>

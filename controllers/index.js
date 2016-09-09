@@ -1,14 +1,17 @@
 var express = require('express');
-var router = express.Router();
 
-var authRouter = require('./auth');
-var userRouter = require('./users');
+module.exports = function(passport){
+  var mainRouter = express.Router();
 
-router.use('/auth', authRouter);
-router.use('/users', userRouter);
+  var authRouter = require('./auth')(passport);
+  var userRouter = require('./users')(passport);
 
-router.get('/', function(req, res){
-  res.render('login');
-});
+  mainRouter.use('/auth', authRouter);
+  mainRouter.use('/users', userRouter);
 
-module.exports = router;
+  mainRouter.get('/', function(req, res){
+    res.render('index');
+  });
+
+  return mainRouter;
+};

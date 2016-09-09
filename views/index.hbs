@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home Page</title>
+</head>
+<body>
+
+<div>
+  {{#if user}}
+    <p>
+      Hello, {{user.name}},you have reached the Main Page!
+    </p>
+  {{else}}
+    <p>
+      Welcome to Main Page. Please <a href="auth/login">login</a>
+    </p>
+  {{/if}}
+</div>
+
+
+</body>
+</html>
