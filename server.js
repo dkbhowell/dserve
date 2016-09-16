@@ -18,13 +18,13 @@ app.set('views', './views');
 app.set('view engine', 'hbs');
 
 passport.use('local', new LocalStrategy(
-  // {
-  //     usernameField: 'email',
-  //     passwordField: 'pwd'
-  // },
+  {
+    usernameField: 'email',
+    passwordField: 'pass'
+  },
   function(username, password, done) {
     console.log('Auth attempt start...')
-    User.findOne({username: username}, function(err, user) {
+    User.findOne({email: username}, function(err, user) {
       if (err) { return done(err); }
       if (!user){
         console.log('AUTH: Incorrect Username');

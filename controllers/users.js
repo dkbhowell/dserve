@@ -1,9 +1,6 @@
 var express = require('express');
 var User = require('../models/db').User;
 
-
-
-
 module.exports = function(passport){
   var router = express.Router();
 

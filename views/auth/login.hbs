@@ -12,10 +12,6 @@
      cursor: pointer;
     }
 
-    #form_create_account{
-      display: none;
-    }
-
     #errors {
       color: red;
     }
@@ -25,30 +21,30 @@
 <body>
 
 <h1>Welcome to DServe</h1>
-<div id="form_login">
+<div id="div_login_form">
   <h4>Login</h4>
-  <form id="login_form" name="login_form" action="login" method="post">
+  <form id="login_form" name="login_form" action="account/login" method="post">
     Email Address: <br />
-    <input type="email" name="username" />
+    <input type="email" name="email" />
     <br />
     Password: <br />
-    <input type="password" name="password" />
+    <input type="password" name="pass" />
     <br />
     <input type="hidden" name="form" value="login" />
     <input id="login_form_submit" type="button" value="Submit" onclick="validateLoginForm()" />
   </form>
 </div>
 
-<div id="form_create_account">
+<div id="div_create_form">
   <h4>Create Account</h4>
-  <form id="create_form" name="create_form" action="login" method="post">
+  <form id="create_form" name="create_form" action="account/create" method="post">
     Email Address: <br />
-    <input type="email" name="username" />
+    <input type="email" name="email" />
     <br />
-    Password: <br />
-    <input type="password" name="password" />
+    Create New Password: <br />
+    <input type="password" name="pass1" />
     <br />
-    <input type="password" name="password2" />
+    <input type="password" name="pass2" />
     <br />
     <input type="hidden" name="form" value="create_account" />
     <input id="create_form_submit" type="button" value="Submit" />
@@ -60,9 +56,13 @@
 </div>
 
 <div>
-  <p id="errors">
-
-  </p>
+  <ul id="errors">
+    {{#each errors}}
+    <li>
+      {{ this }}
+    </li>
+    {{/each}}
+  </ul>
 </div>
 
 <script src="/js/auth/login/bundle.js"></script>

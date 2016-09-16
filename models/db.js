@@ -13,6 +13,7 @@ dbconn.once('open', function(){
 var userSchema = mongoose.Schema({
   username: String,
   email: String,
+  password: String,
   name: {
     first: String,
     last: String,
