@@ -6,6 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
+    "watchify-start": "watchify -d static/js/auth/login/login.js -o static/js/auth/login/bundle.js",
+    "mongo-start": "mongod --dbpath=/data",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Dustin Howell",
