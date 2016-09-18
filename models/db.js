@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var bcrypt = require('bcrypt');
 
 var dburl = 'mongodb://127.0.0.1:27017/test';
 
@@ -20,5 +21,9 @@ var userSchema = mongoose.Schema({
     full: String
   }
 });
+
+userSchema.methods.isValidPassword = function(pass){
+  return bcrypt.compareSync(pass, this.password);
+}
 
 exports.User = mongoose.model('User', userSchema);

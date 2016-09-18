@@ -66,8 +66,9 @@ function validateLoginForm(){
   clearErrors();
   // console.log(document.forms["login_form"])
   console.log("validating login form");
-  var email = loginForm.username.value;
-  var pass = loginForm.password.value;
+  console.log(loginForm);
+  var email = loginForm.email.value;
+  var pass = loginForm.pass.value;
   console.log("form values - " + email + ", " + pass);
   var validEmail = validator.isValidEmail(email);
   var validPass = validator.isValidPassword(pass);

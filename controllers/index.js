@@ -10,7 +10,8 @@ module.exports = function(passport){
   mainRouter.use('/users', userRouter);
 
   mainRouter.get('/', function(req, res){
-    res.render('index');
+    console.log(req.user);
+    res.render('index', {user:req.user});
   });
 
   return mainRouter;

@@ -61,7 +61,7 @@ module.exports = function(passport){
     // res.render('auth/login', {errors: ["error 1", "error 2"]});
   });
 
-  router.post('/account/login', function(req, res){
+  router.post('/account/login', function(req, res, next){
     var email = req.body.email;
     var pwd = req.body.pass;
     console.log(req.body);
@@ -69,7 +69,18 @@ module.exports = function(passport){
       res.render('auth/login', { errors:["Invalid Email or Password"] } );
     }else{
       console.log ('About to try auth - email: ' + email + ', pwd: ' + pwd);
-      passport.authenticate('local', { successRedirect: '/', failureRedirect: '/auth/login' })(req, res);
+      passport.authenticate('local', function(err, user, info){
+        if(err) { return next(err); }
+        if(!user) { return res.redirect('/login'); }
+        console.log("user found: logging into session");
+        console.log(user);
+        console.log(req.logIn);
+        req.login(user, function(err){
+          if(err) { return next(err); }
+          console.log("login user called");
+          return res.redirect('/');
+        })
+      })(req, res, next);
     }
   });
 
